@@ -1,5 +1,6 @@
 // import redux middlewares
-import { createStore, compose } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import persistState from "redux-localstorage";
 
 // import components to pass to redux store
@@ -12,7 +13,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     reducer,
     initialState,
-    composeEnhancers(persistState())
+    composeEnhancers(applyMiddleware(thunk),
+    persistState())
 );
 
 export default store;
