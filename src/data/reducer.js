@@ -1,7 +1,7 @@
 //importing initialState to make it available to the reducer
 import initialState from "./initialState";
 
-updateQuestion = (state, action) => {
+const updateQuestion = (state, action) => {
     return {
         ...state,
         currentQuestion: action.currentQuestion,

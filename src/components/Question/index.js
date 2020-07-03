@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Question from "./Question";
 
-import getQuestion from "./../../data/actions/api";
+import { getQuestion } from "./../../data/actions/api";
 
 const mapStateToProps = (state) => {
     return {
