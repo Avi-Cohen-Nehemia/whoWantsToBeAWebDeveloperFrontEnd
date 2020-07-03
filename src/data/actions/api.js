@@ -1,3 +1,5 @@
+import axios from "./../../axios";
+
 export const getQuestion = () => {
     return (dispatch, getState) => {
         const diffculty = getState().currentDifficulty;

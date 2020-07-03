@@ -32,6 +32,10 @@ class Question extends Component {
     //     this.setState({ playerName: e.currentTarget.value });
     // }
 
+    componentDidMount() {
+        this.props.handleLoad();
+    }
+
     render() {
         let { answerA, answerB, answerC, answerD, } = this.state;
 
