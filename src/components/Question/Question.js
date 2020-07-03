@@ -33,13 +33,15 @@ class Question extends Component {
     // }
 
     render() {
+        let { answerA, answerB, answerC, answerD, } = this.state;
+
         return(
             <>
-                <h2></h2>
-                <h4></h4>
-                <h4></h4>
-                <h4></h4>
-                <h4></h4>
+                <h2>{ this.state.question }</h2>
+                <h4>{ answerA }</h4>
+                <h4>{ answerB }</h4>
+                <h4>{ answerC }</h4>
+                <h4>{ answerD }</h4>
             </>
         );
     }
