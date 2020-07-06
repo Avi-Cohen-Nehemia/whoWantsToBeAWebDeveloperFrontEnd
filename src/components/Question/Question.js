@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Alert from "./../Alert";
+import Reset from "./../Reset";
 
 class Question extends Component {
 
@@ -111,10 +112,12 @@ class Question extends Component {
                         { answerD }</h4>
                 <button disabled={selected === 0} 
                         onClick={ this.handleGo }>Go</button>
-                        
+
                 {this.state.answerCorrect !== null ?
                 <Alert correct={this.state.answerCorrect} />
                 : null }
+
+                <Reset />
             </>
         );
     }

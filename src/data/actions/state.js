@@ -31,3 +31,9 @@ export const updateDifficulty = () => {
         type: "UPDATE_DIFFICULTY",
     }
 }
+
+export const resetGame = () => {
+    return {
+        type: "RESET_GAME",
+    }
+}
