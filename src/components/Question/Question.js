@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Alert from "./../Alert";
+
 class Question extends Component {
 
     constructor(props) {
@@ -109,6 +111,10 @@ class Question extends Component {
                         { answerD }</h4>
                 <button disabled={selected === 0} 
                         onClick={ this.handleGo }>Go</button>
+                        
+                {this.state.answerCorrect !== null ?
+                <Alert correct={this.state.answerCorrect} />
+                : null }
             </>
         );
     }
