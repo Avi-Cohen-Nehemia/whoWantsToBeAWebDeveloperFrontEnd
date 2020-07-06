@@ -25,3 +25,9 @@ export const updateCurrentQuestion = (data) => {
         }
     };
 };
+
+export const updateDifficulty = () => {
+    return {
+        type: "UPDATE_DIFFICULTY",
+    }
+}

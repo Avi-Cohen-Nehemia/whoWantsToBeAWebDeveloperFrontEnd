@@ -25,6 +25,8 @@ class Question extends Component {
             selected: 0,
 
             answerCorrect: null,
+
+            currentDifficulty: props.currentDifficulty,
         };
 
         this.handleAClick = this.handleAClick.bind(this);
@@ -60,21 +62,32 @@ class Question extends Component {
         let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, answerCorrect } = this.state;
 
         if(selected===1 && isCorrectA===1 ) {
-            this.setState({answerCorrect: true })
+            this.setState({
+                answerCorrect: true,
+            })
+            this.props.handleDifficulty();
         }
         else if(selected===2 && isCorrectB===1 ) {
-            this.setState({answerCorrect: true })
+            this.setState({
+                answerCorrect: true,
+            })
+            this.props.handleDifficulty();
         }
         else if(selected===3 && isCorrectC===1 ) {
-            this.setState({answerCorrect: true })
+            this.setState({
+                answerCorrect: true,
+            })
+            this.props.handleDifficulty();
         }
         else if(selected===4 && isCorrectD===1 ) {
-            this.setState({answerCorrect: true })
+            this.setState({
+                answerCorrect: true,
+            })
+            this.props.handleDifficulty();
         } else {
-            this.setState({answerCorrect: false })
+            this.setState({ answerCorrect: false })
         }
     }
-
 
     render() {
         let { answerA, answerB, answerC, answerD, selected } = this.state;
