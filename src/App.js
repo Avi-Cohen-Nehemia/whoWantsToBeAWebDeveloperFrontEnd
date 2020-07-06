@@ -3,16 +3,14 @@ import './App.css';
 import Landing from "./components/Landing";
 import Question from './components/Question';
 
-import history from "./history";
-
 import {
-  Router,
+  BrowserRouter as Router,
   Route,
 } from "react-router-dom";
 
 function App() {
   return (
-    <Router history={history}>
+    <Router>
       <Route exact path="/">
         <Landing />
       </Route>

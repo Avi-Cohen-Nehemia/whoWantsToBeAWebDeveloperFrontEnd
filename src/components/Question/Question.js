@@ -31,7 +31,6 @@ class Question extends Component {
 
             currentDifficulty: props.currentDifficulty,
             
-            loaded: false,
         };
 
         this.handleAClick = this.handleAClick.bind(this);
@@ -60,7 +59,7 @@ class Question extends Component {
     }
 
     handleGo() {
-        let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, answerCorrect } = this.state;
+        let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
 
         if(selected===1 && isCorrectA===1 ) {
             this.setState({
@@ -89,6 +88,33 @@ class Question extends Component {
             this.setState({ answerCorrect: false })
         }
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.currentQuestion.content !== this.props.currentQuestion.content) {
+          this.setState({
+            playerName: this.props.playerName,
+            question: this.props.currentQuestion.content,
+
+            answerA: this.props.currentQuestion.answerA.answer,
+            isCorrectA: this.props.currentQuestion.answerA.correct,
+
+            answerB: this.props.currentQuestion.answerB.answer,
+            isCorrectB: this.props.currentQuestion.answerB.correct,
+
+            answerC: this.props.currentQuestion.answerC.answer,
+            isCorrectC: this.props.currentQuestion.answerC.correct,
+
+            answerD: this.props.currentQuestion.answerD.answer,
+            isCorrectD: this.props.currentQuestion.answerD.correct,
+
+            selected: 0,
+
+            answerCorrect: null,
+
+            currentDifficulty: this.props.currentDifficulty,
+          })
+        }
+      }
 
     render() {
         let { answerA, answerB, answerC, answerD, selected } = this.state;

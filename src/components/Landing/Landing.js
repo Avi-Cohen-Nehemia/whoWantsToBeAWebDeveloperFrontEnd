@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 
+import { Link } from "react-router-dom";
+
 class Landing extends Component {
 
     constructor(props) {
 
         super(props);
-
-        this.state = {
-            
-        };
-
-        
+              
         this.handleStart = this.handleStart.bind(this);
 
     }
@@ -22,7 +19,9 @@ class Landing extends Component {
     render() {
 
         return(
-            <button onClick={ this.handleStart }>Start Game</button>
+            <Link to="/game">
+                <button onClick={ this.handleStart }>Start Game</button>
+            </Link>
         );
     }
 }
