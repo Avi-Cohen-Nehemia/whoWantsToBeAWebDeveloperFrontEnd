@@ -1,12 +1,25 @@
 import React from 'react';
 import './App.css';
+import Landing from "./components/Landing";
 import Question from './components/Question';
+
+import history from "./history";
+
+import {
+  Router,
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
-    <React.Fragment>
-      <Question/>
-    </React.Fragment>
+    <Router history={history}>
+      <Route exact path="/">
+        <Landing />
+      </Route>
+      <Route exact path="/game">
+        <Question />
+      </Route>
+    </Router>
   );
 }
 

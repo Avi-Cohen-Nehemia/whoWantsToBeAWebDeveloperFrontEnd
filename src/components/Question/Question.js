@@ -30,6 +30,8 @@ class Question extends Component {
             answerCorrect: null,
 
             currentDifficulty: props.currentDifficulty,
+            
+            loaded: false,
         };
 
         this.handleAClick = this.handleAClick.bind(this);
@@ -39,10 +41,6 @@ class Question extends Component {
 
         this.handleGo = this.handleGo.bind(this);
 
-    }
-
-    componentDidMount() {
-        this.props.handleLoad();
     }
 
     handleAClick() {
@@ -95,8 +93,8 @@ class Question extends Component {
     render() {
         let { answerA, answerB, answerC, answerD, selected } = this.state;
 
-        return(
-            <>
+        return (
+            <> 
                 <h2>{ this.state.question }</h2>
                 <h4 onClick={ this.handleAClick }
                     style={{border: selected === 1 ? "2px solid red" : null}}

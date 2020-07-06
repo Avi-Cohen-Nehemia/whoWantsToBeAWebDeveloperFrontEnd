@@ -1,7 +1,7 @@
 export const initialState = {
     playerName: "",
     currentDifficulty: 1,
-    
+
     currentQuestion: {
         content: "",
         answerA: {
