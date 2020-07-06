@@ -23,12 +23,16 @@ class Question extends Component {
             isCorrectD: props.currentQuestion.answerD.correct,
 
             selected: 0,
+
+            answerCorrect: null,
         };
 
         this.handleAClick = this.handleAClick.bind(this);
         this.handleBClick = this.handleBClick.bind(this);
         this.handleCClick = this.handleCClick.bind(this);
         this.handleDClick = this.handleDClick.bind(this);
+
+        this.handleGo = this.handleGo.bind(this);
 
     }
 
@@ -52,6 +56,25 @@ class Question extends Component {
         this.setState({selected: 4});
     }
 
+    handleGo() {
+        let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, answerCorrect } = this.state;
+
+        if(selected===1 && isCorrectA===1 ) {
+            this.setState({answerCorrect: true })
+        }
+        else if(selected===2 && isCorrectB===1 ) {
+            this.setState({answerCorrect: true })
+        }
+        else if(selected===3 && isCorrectC===1 ) {
+            this.setState({answerCorrect: true })
+        }
+        else if(selected===4 && isCorrectD===1 ) {
+            this.setState({answerCorrect: true })
+        } else {
+            this.setState({answerCorrect: false })
+        }
+    }
+
 
     render() {
         let { answerA, answerB, answerC, answerD, selected } = this.state;
@@ -71,6 +94,8 @@ class Question extends Component {
                 <h4 onClick={ this.handleDClick }
                     style={{border: selected === 4 ? "2px solid red" : null}}>
                         { answerD }</h4>
+                <button disabled={selected === 0} 
+                        onClick={ this.handleGo }>Go</button>
             </>
         );
     }
