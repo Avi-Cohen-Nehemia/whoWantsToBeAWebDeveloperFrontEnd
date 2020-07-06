@@ -13,7 +13,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-localstorage": "^0.4.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "typescript": "^3.9.6"
   },
   "scripts": {
     "start": "react-scripts start",
