@@ -30,12 +30,7 @@ class Question extends Component {
         this.handleCClick = this.handleCClick.bind(this);
         this.handleDClick = this.handleDClick.bind(this);
 
-        // this.handlePlayerName = this.handlePlayerName.bind(this);
     }
-
-    // handlePlayerName(e) {
-    //     this.setState({ playerName: e.currentTarget.value });
-    // }
 
     componentDidMount() {
         this.props.handleLoad();
@@ -56,8 +51,6 @@ class Question extends Component {
     handleDClick() {
         this.setState({selected: 4});
     }
-
-
 
 
     render() {
