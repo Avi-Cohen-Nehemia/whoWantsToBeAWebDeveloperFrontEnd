@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
 
+import "./../../assets/css/landing.css";
+
 class Landing extends Component {
 
     constructor(props) {
@@ -19,9 +21,11 @@ class Landing extends Component {
     render() {
 
         return(
-            <Link to="/game">
-                <button onClick={ this.handleStart }>Start Game</button>
-            </Link>
+            <div className="landing-bg">
+                <Link to="/game">
+                    <button onClick={ this.handleStart }>Start Game</button>
+                </Link>
+            </div>
         );
     }
 }

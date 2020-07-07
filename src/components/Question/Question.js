@@ -117,7 +117,24 @@ class Question extends Component {
       }
 
     render() {
-        let { answerA, answerB, answerC, answerD, selected } = this.state;
+        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
+
+
+        let correctAnswer = "";
+
+        if (isCorrectA) {
+            correctAnswer = answerA;
+        }
+        if (isCorrectB) {
+            correctAnswer = answerB;
+        }
+        if (isCorrectC) {
+            correctAnswer = answerC;
+        }
+        if (isCorrectD) {
+            correctAnswer = answerD;
+        }
+            
 
         return (
             <> 
@@ -138,7 +155,10 @@ class Question extends Component {
                         onClick={ this.handleGo }>Go</button>
 
                 {this.state.answerCorrect !== null ?
-                <Alert correct={this.state.answerCorrect} />
+                <Alert
+                    correct={this.state.answerCorrect}
+                    correctAnswer={ correctAnswer }
+                />
                 : null }
 
                 <Reset />

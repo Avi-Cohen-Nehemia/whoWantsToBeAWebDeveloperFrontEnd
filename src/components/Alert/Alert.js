@@ -1,6 +1,7 @@
 import React from "react";
+import Reset from "./../Reset";
 
-const Alert = ({ correct, handleSubmit }) => (
+const Alert = ({ correct, handleSubmit, correctAnswer }) => (
     <>
     { correct ? 
         <>
@@ -9,8 +10,8 @@ const Alert = ({ correct, handleSubmit }) => (
         </>
          :
          <>
-            <p>Bad luck, you're wrong!</p>
-            <button></button>
+            <p>Bad luck, you're wrong! The right answer is { correctAnswer }</p>
+            <Reset/>
         </>
     }
     </>    
