@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import Landing from "./Landing";
 
-import { getQuestion } from "./../../data/actions/api";
+import { setGame } from "./../../data/actions/api";
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleStart: () => dispatch(getQuestion()),
+        handleStart: (name) => dispatch(setGame(name)),
     }
 }
 
