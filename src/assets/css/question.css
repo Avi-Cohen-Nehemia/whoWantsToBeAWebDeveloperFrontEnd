@@ -1,0 +1,14 @@
+.question-bg {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    position: fixed;
+    overflow-Y: scroll;
+    background-image: url(../images/bg.jpeg);
+    text-align: center;
+    object-fit: cover;
+    padding: 1rem 0 1rem;
+    overflow: hidden;
+  }

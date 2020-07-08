@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Alert from "./../Alert";
 import Reset from "./../Reset";
 
+import "./../../assets/css/question.css";
+
 class Question extends Component {
 
     constructor(props) {
@@ -137,7 +139,7 @@ class Question extends Component {
             
 
         return (
-            <> 
+            <div className="question-bg">
                 <h2>{ this.state.question }</h2>
                 <h4 onClick={ this.handleAClick }
                     style={{border: selected === 1 ? "2px solid red" : null}}
@@ -162,7 +164,7 @@ class Question extends Component {
                 : null }
 
                 <Reset />
-            </>
+            </div>
         );
     }
 }
