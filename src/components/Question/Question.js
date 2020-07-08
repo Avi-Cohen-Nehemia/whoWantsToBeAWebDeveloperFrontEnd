@@ -143,7 +143,9 @@ class Question extends Component {
             <div className="question-bg">
                 <img className="question-img" src={ questionImage } alt="background image for questions" />
                 <div className="question-answers">
-                    <h2>{ this.state.question }</h2>
+                    <span className="question">
+                        <h2>{ this.state.question }</h2>
+                    </span>
                     <h4 className="answer-a"
                         onClick={ this.handleAClick }
                         style={{border: selected === 1 ? "2px solid red" : null}}>
