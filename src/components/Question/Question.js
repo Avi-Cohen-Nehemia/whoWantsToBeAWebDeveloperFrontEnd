@@ -4,6 +4,7 @@ import Alert from "./../Alert";
 import Reset from "./../Reset";
 
 import "./../../assets/css/question.css";
+import questionImage from "../../assets/images/questionBarsTransparent.png";
 
 class Question extends Component {
 
@@ -140,30 +141,34 @@ class Question extends Component {
 
         return (
             <div className="question-bg">
-                <h2>{ this.state.question }</h2>
-                <h4 onClick={ this.handleAClick }
-                    style={{border: selected === 1 ? "2px solid red" : null}}
-                        >{ answerA }</h4>
-                <h4 onClick={ this.handleBClick }
-                    style={{border: selected === 2 ? "2px solid red" : null}}
-                    >{ answerB }</h4>
-                <h4 onClick={ this.handleCClick }
-                    style={{border: selected === 3 ? "2px solid red" : null}}
-                    >{ answerC }</h4>
-                <h4 onClick={ this.handleDClick }
-                    style={{border: selected === 4 ? "2px solid red" : null}}>
-                        { answerD }</h4>
-                <button disabled={selected === 0} 
-                        onClick={ this.handleGo }>Go</button>
-
+                <img className="question-img" src={ questionImage } alt="background image for questions" />
+                <div className="question-answers">
+                    <h2>{ this.state.question }</h2>
+                    <h4 className="answer-a"
+                        onClick={ this.handleAClick }
+                        style={{border: selected === 1 ? "2px solid red" : null}}>
+                            <span>&#9830; A:</span>{ answerA }</h4>
+                    <h4 className="answer-b"
+                        onClick={ this.handleBClick }
+                        style={{border: selected === 2 ? "2px solid red" : null}}>
+                            <span>&#9830; B:</span>{ answerB }</h4>
+                    <h4 className="answer-c"
+                        onClick={ this.handleCClick }
+                        style={{border: selected === 3 ? "2px solid red" : null}}>
+                            <span>&#9830; C:</span>{ answerC }</h4>
+                    <h4 className="answer-d"
+                        onClick={ this.handleDClick }
+                        style={{border: selected === 4 ? "2px solid red" : null}}>
+                            <span>&#9830; D:</span>{ answerD }</h4>   
+                </div>
+                {/* <button disabled={selected === 0} 
+                            onClick={ this.handleGo }>Go</button> */}
                 {this.state.answerCorrect !== null ?
                 <Alert
                     correct={this.state.answerCorrect}
                     correctAnswer={ correctAnswer }
                 />
                 : null }
-
-                <Reset />
             </div>
         );
     }
