@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-
 import Alert from "./../Alert";
-import Reset from "./../Reset";
-
 import "./../../assets/css/question.css";
-import questionImage from "../../assets/images/questionBarsTransparent.png";
 
 class Question extends Component {
 
@@ -41,7 +37,7 @@ class Question extends Component {
         this.handleCClick = this.handleCClick.bind(this);
         this.handleDClick = this.handleDClick.bind(this);
 
-        this.handleGo = this.handleGo.bind(this);
+        this.handleFinalAnswer = this.handleFinalAnswer.bind(this);
 
     }
 
@@ -61,7 +57,7 @@ class Question extends Component {
         this.setState({selected: 4});
     }
 
-    handleGo() {
+    handleFinalAnswer() {
         let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
 
         if(selected===1 && isCorrectA===1 ) {
@@ -141,7 +137,12 @@ class Question extends Component {
 
         return (
             <div className="question-bg">
-                {/* <img className="question-img" src={ questionImage } alt="background image for questions" /> */}
+                <Alert
+                    selected={ selected }
+                    handleFinalAnswer={ this.handleFinalAnswer }
+                    correct={this.state.answerCorrect}
+                    correctAnswer={ correctAnswer }
+                />
                 <div className="question-answers">
                     <span className="question">
                         <h2>{ this.state.question }</h2>
@@ -163,14 +164,6 @@ class Question extends Component {
                             <span className="bullet-point">&#9830; D:</span>{ answerD }</h4> 
                     </span>  
                 </div>
-                {/* <button disabled={selected === 0} 
-                            onClick={ this.handleGo }>Go</button> */}
-                {this.state.answerCorrect !== null ?
-                <Alert
-                    correct={this.state.answerCorrect}
-                    correctAnswer={ correctAnswer }
-                />
-                : null }
             </div>
         );
     }

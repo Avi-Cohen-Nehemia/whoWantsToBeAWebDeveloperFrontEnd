@@ -4,6 +4,7 @@ export const initialState = {
 
     currentQuestion: {
         content: "",
+        amount: "",
         answerA: {
             answer: "",
             correct: null
