@@ -141,27 +141,31 @@ class Question extends Component {
 
         return (
             <div className="question-bg">
-                <img className="question-img" src={ questionImage } alt="background image for questions" />
+                {/* <img className="question-img" src={ questionImage } alt="background image for questions" /> */}
                 <div className="question-answers">
                     <span className="question">
                         <h2>{ this.state.question }</h2>
                     </span>
-                    <h4 className="answer-a"
-                        onClick={ this.handleAClick }
-                        style={{border: selected === 1 ? "2px solid red" : null}}>
-                            <span>&#9830; A:</span>{ answerA }</h4>
-                    <h4 className="answer-b"
-                        onClick={ this.handleBClick }
-                        style={{border: selected === 2 ? "2px solid red" : null}}>
-                            <span>&#9830; B:</span>{ answerB }</h4>
-                    <h4 className="answer-c"
-                        onClick={ this.handleCClick }
-                        style={{border: selected === 3 ? "2px solid red" : null}}>
-                            <span>&#9830; C:</span>{ answerC }</h4>
-                    <h4 className="answer-d"
-                        onClick={ this.handleDClick }
+                    <span className="answer-a">
+                        <h4 onClick={ this.handleAClick }
+                            style={{border: selected === 1 ? "2px solid red" : null}}>
+                            <span className="bullet-point">&#9830; A:</span>{ answerA }</h4>
+                    </span>
+                    <span className="answer-b">
+                        <h4 onClick={ this.handleBClick }
+                            style={{border: selected === 2 ? "2px solid red" : null}}>
+                            <span className="bullet-point">&#9830; B:</span>{ answerB }</h4>
+                    </span>
+                    <span className="answer-c">
+                        <h4 onClick={ this.handleCClick }
+                            style={{border: selected === 3 ? "2px solid red" : null}}>
+                                <span className="bullet-point">&#9830; C:</span>{ answerC }</h4>
+                    </span>
+                    <span className="answer-d">
+                        <h4 onClick={ this.handleDClick }
                         style={{border: selected === 4 ? "2px solid red" : null}}>
-                            <span>&#9830; D:</span>{ answerD }</h4>   
+                            <span className="bullet-point">&#9830; D:</span>{ answerD }</h4> 
+                    </span>  
                 </div>
                 {/* <button disabled={selected === 0} 
                             onClick={ this.handleGo }>Go</button> */}
