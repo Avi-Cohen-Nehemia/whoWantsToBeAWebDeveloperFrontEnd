@@ -146,24 +146,20 @@ class Question extends Component {
                     <span className="question">
                         <h2>{ this.state.question }</h2>
                     </span>
-                    <span className="answer-a">
-                        <h4 onClick={ this.handleAClick }
-                            style={{border: selected === 1 ? "2px solid red" : null}}>
+                    <span className="answer-a" onClick={ this.handleAClick }>
+                        <h4 style={{color: selected === 1 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point">&#9830; A:</span>{ answerA }</h4>
                     </span>
-                    <span className="answer-b">
-                        <h4 onClick={ this.handleBClick }
-                            style={{border: selected === 2 ? "2px solid red" : null}}>
+                    <span className="answer-b" onClick={ this.handleBClick }>
+                        <h4 style={{color: selected === 2 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point">&#9830; B:</span>{ answerB }</h4>
                     </span>
-                    <span className="answer-c">
-                        <h4 onClick={ this.handleCClick }
-                            style={{border: selected === 3 ? "2px solid red" : null}}>
+                    <span className="answer-c" onClick={ this.handleCClick }>
+                        <h4 style={{color: selected === 3 ? "rgb(224, 215, 78)" : "white"}}>
                                 <span className="bullet-point">&#9830; C:</span>{ answerC }</h4>
                     </span>
-                    <span className="answer-d">
-                        <h4 onClick={ this.handleDClick }
-                        style={{border: selected === 4 ? "2px solid red" : null}}>
+                    <span className="answer-d" onClick={ this.handleDClick }>
+                        <h4 style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point">&#9830; D:</span>{ answerD }</h4> 
                     </span>  
                 </div>
