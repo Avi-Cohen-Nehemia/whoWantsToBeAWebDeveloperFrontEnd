@@ -133,14 +133,15 @@ class Question extends Component {
         if (isCorrectD) {
             correctAnswer = answerD;
         }
-            
+          
+        let longAnswers = (answerA.length > 25 || answerB.length > 25 || answerC.length > 25 || answerD.length > 25);
 
         return (
             <div className="question-bg">
                 <Alert
                     selected={ selected }
                     handleFinalAnswer={ this.handleFinalAnswer }
-                    correct={this.state.answerCorrect}
+                    correct={this.state.answerCorrect}  
                     correctAnswer={ correctAnswer }
                 />
                 <div className="question-answers">
@@ -148,20 +149,32 @@ class Question extends Component {
                         <h2>{ this.state.question }</h2>
                     </span>
                     <span className="answer-a" onClick={ this.handleAClick }>
-                        <h4 style={{color: selected === 1 ? "rgb(224, 215, 78)" : "white"}}>
-                            <span className="bullet-point">&#9830; A:</span>{ answerA }</h4>
+                        <h4 className="answers"
+                            style={{color: selected === 1 ? "rgb(224, 215, 78)" : "white",
+                                    fontSize: longAnswers ? "75%" : "100%"}}>
+                            <span className="bullet-point"><span>&#9830; </span>A:</span>
+                            { answerA }</h4>
                     </span>
                     <span className="answer-b" onClick={ this.handleBClick }>
-                        <h4 style={{color: selected === 2 ? "rgb(224, 215, 78)" : "white"}}>
-                            <span className="bullet-point">&#9830; B:</span>{ answerB }</h4>
+                        <h4 className="answers"
+                            style={{color: selected === 2 ? "rgb(224, 215, 78)" : "white",
+                                    fontSize: longAnswers ? "75%" : "100%"}}>
+                            <span className="bullet-point"><span>&#9830; </span>B:</span>
+                            { answerB }</h4>
                     </span>
                     <span className="answer-c" onClick={ this.handleCClick }>
-                        <h4 style={{color: selected === 3 ? "rgb(224, 215, 78)" : "white"}}>
-                                <span className="bullet-point">&#9830; C:</span>{ answerC }</h4>
+                        <h4 className="answers"
+                            style={{color: selected === 3 ? "rgb(224, 215, 78)" : "white",
+                                    fontSize: longAnswers ? "75%" : "100%"}}>
+                                <span className="bullet-point"><span>&#9830; </span>C:</span>
+                                { answerC }</h4>
                     </span>
                     <span className="answer-d" onClick={ this.handleDClick }>
-                        <h4 style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white"}}>
-                            <span className="bullet-point">&#9830; D:</span>{ answerD }</h4> 
+                        <h4 className="answers"
+                            style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white",
+                                    fontSize: longAnswers ? "75%" : "100%"}}>
+                            <span className="bullet-point"><span>&#9830; </span>D:</span>
+                            { answerD }</h4> 
                     </span>  
                 </div>
             </div>

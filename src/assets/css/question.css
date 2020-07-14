@@ -62,7 +62,7 @@ body {
     word-wrap: break-word;
     margin-right: auto;
     margin-left: auto;
-    max-width: 90%;
+    max-width: 70%;
     display: flex;
     align-items: center;
 }
@@ -75,6 +75,13 @@ body {
     font-size: 1.5rem;
     align-items: center;
     display: flex;
+    width: 75%;
+}
+
+.answers {
+    display: flex;
+    align-items: center;
+    width: 85%;
 }
 
 .answer-b {
@@ -85,6 +92,7 @@ body {
     font-size: 1.5rem;
     align-items: center;
     display: flex;
+    width: 75%;
 }
 
 .answer-c {
@@ -96,6 +104,7 @@ body {
     margin-top: 1.5%;
     align-items: center;
     display: flex;
+    width: 75%;
 }
 
 
@@ -107,11 +116,20 @@ body {
     margin-top: 1.5%;
     align-items: center;
     display: flex;
+    width: 75%;
 }
 
 .bullet-point {
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
     color: rgb(224, 215, 78);
+    width: 10%;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 1080px) {
+    .bullet-point span {
+        display: none;
+    }
 }
 
 .alert-wrapper {
