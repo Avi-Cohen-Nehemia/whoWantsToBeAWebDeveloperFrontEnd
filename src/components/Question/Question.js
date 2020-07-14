@@ -116,7 +116,7 @@ class Question extends Component {
       }
 
     render() {
-        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
+        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, question } = this.state;
 
 
         let correctAnswer = "";
@@ -136,6 +136,10 @@ class Question extends Component {
           
         let longAnswers = (answerA.length > 25 || answerB.length > 25 || answerC.length > 25 || answerD.length > 25);
 
+        let longAnswersMobile = (answerA.length > 18 || answerB.length > 18 || answerC.length > 18 || answerD.length > 18);
+
+        let longQuestions = question.length > 60;
+
         return (
             <div className="question-bg">
                 <Alert
@@ -146,35 +150,27 @@ class Question extends Component {
                 />
                 <div className="question-answers">
                     <span className="question">
-                        <h2>{ this.state.question }</h2>
+                        <h2 className={ longQuestions ? "long-questions" : "" }>{ question }</h2>
                     </span>
                     <span className="answer-a" onClick={ this.handleAClick }>
-                        <h4 className="answers"
-                            style={{color: selected === 1 ? "rgb(224, 215, 78)" : "white",
-                                    fontSize: longAnswers ? "75%" : "100%"}}>
-                            <span className="bullet-point"><span>&#9830; </span>A:</span>
-                            { answerA }</h4>
+                        <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
+                            style={{color: selected === 1 ? "rgb(224, 215, 78)" : "white"}}>
+                            <span className="bullet-point"><span>&#9830; </span>A:</span><span>{ answerA }</span></h4>
                     </span>
                     <span className="answer-b" onClick={ this.handleBClick }>
-                        <h4 className="answers"
-                            style={{color: selected === 2 ? "rgb(224, 215, 78)" : "white",
-                                    fontSize: longAnswers ? "75%" : "100%"}}>
-                            <span className="bullet-point"><span>&#9830; </span>B:</span>
-                            { answerB }</h4>
+                        <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
+                            style={{color: selected === 2 ? "rgb(224, 215, 78)" : "white"}}>
+                            <span className="bullet-point"><span>&#9830; </span>B:</span><span>{ answerB }</span></h4>
                     </span>
                     <span className="answer-c" onClick={ this.handleCClick }>
-                        <h4 className="answers"
-                            style={{color: selected === 3 ? "rgb(224, 215, 78)" : "white",
-                                    fontSize: longAnswers ? "75%" : "100%"}}>
-                                <span className="bullet-point"><span>&#9830; </span>C:</span>
-                                { answerC }</h4>
+                        <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
+                            style={{color: selected === 3 ? "rgb(224, 215, 78)" : "white"}}>
+                                <span className="bullet-point"><span>&#9830; </span>C:</span><span>{ answerC }</span></h4>
                     </span>
                     <span className="answer-d" onClick={ this.handleDClick }>
-                        <h4 className="answers"
-                            style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white",
-                                    fontSize: longAnswers ? "75%" : "100%"}}>
-                            <span className="bullet-point"><span>&#9830; </span>D:</span>
-                            { answerD }</h4> 
+                        <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
+                            style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white"}}>
+                            <span className="bullet-point"><span>&#9830; </span>D:</span><span>{ answerD }</span></h4> 
                     </span>  
                 </div>
             </div>

@@ -105,7 +105,7 @@ body {
     white-space: nowrap;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (min-width: 600px) and (max-width: 1080px) {
     .bullet-point span {
         display: none;
     }
@@ -124,10 +124,9 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
-    .alert-wrapper {
-        height: 20%;
-        margin: 2.5%;
+@media screen and (max-width: 700px) {
+    .alert-container {
+        width: 40%;
     }
 }
 
@@ -140,20 +139,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
-
-@media screen and (max-width: 700px) {
-    .alert-container {
-        width: 40%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .alert-container {
-        width: 100%;
-        text-align: center;
-    }
-}
+}  
 
 .alert-container p {
     margin: 0 2rem;
@@ -176,4 +162,82 @@ button:focus {
 
 a {
     text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+    .alert-wrapper {
+        height: 20%;
+        margin: 2.5%;
+    }
+
+    .alert-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .question-answers {
+        background-image: url(../images/mobileBarsTransparent2.png);
+        grid-template-columns: 100%;
+        grid-template-rows: 28% 18% 18% 18% 18%;
+        padding: 0;
+    }
+
+    .answers {
+        margin: 0;
+        width: 100%;
+    }
+
+    .question {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+
+    .answer-a {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        margin-left: 12%;
+        margin-top: 1%;
+    }
+
+    .answer-b {
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
+        margin-left: 12%;
+        margin-top: 1%;
+    }
+
+    .answer-c {
+        grid-row: 4 / 5;
+        grid-column: 1 / 2;
+        margin-left: 12%;
+        margin-bottom: 2.5%;
+    }
+
+    .answer-d {
+        grid-row: 5 / 6;
+        grid-column: 1 / 2;
+        margin-left: 12%;
+        margin-bottom: 3.5%;
+    }
+
+    .bullet-point {
+        margin-right: 0;
+        width: 12%;
+    }
+
+    .answers span {
+        display: inline-block;
+    }
+
+    .answers span:nth-child(2) {
+        margin-left: 1rem;
+    }
+
+    .long-questions {
+        font-size: 80%;
+    }
+
+    .long-answers-mobile {
+        font-size: 75%;
+    }
 }
