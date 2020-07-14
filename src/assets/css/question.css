@@ -164,6 +164,12 @@ a {
     text-decoration: none;
 }
 
+@media screen and (min-width: 600px) {
+    .long-answers {
+        font-size: 75%;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .alert-wrapper {
         height: 20%;
