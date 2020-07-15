@@ -3,8 +3,8 @@ import Reset from "./../Reset";
 import Button from "./../Button";
 
 const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, currentAmount, selected, handleFinalAnswer }) => (
-    <div className="alert-wrapper">
-        <div className="alert-container">
+    <div className={currentDifficulty === 5 ? "win-wrapper" : "alert-wrapper"}>
+        <div className={currentDifficulty === 5 ? "win-container" : "alert-container"}>
             { !selected ? <p>Host: Question number { currentDifficulty } for £{ currentAmount }</p>
             : ( selected && correct === null ?
             <>
@@ -13,10 +13,12 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
                     text={ "Final Answer" }
                     color={ "#ffc107" }
                     click={ handleFinalAnswer }
+                    btnStyle={ "button" }
                 />
             </>
-            : ( correct && currentDifficulty === 9 ?
-            <><p>Well done! You beat the game!</p><Reset/></> :
+            : ( correct && currentDifficulty === 5 ?
+            <><p>Congratulations!<br/>You are a Web Developer!</p>
+                    <Reset btnStyle={"winning-button"} /></> :
             (correct ?
             <>
                 <p>You are correct!</p>
@@ -24,9 +26,10 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
                     text={ "Next Question" }
                     color={ "#28a745" }
                     click={ handleSubmit }
+                    btnStyle={ "button" }
                 />
             </>
-            : <><p>Bad luck, you're wrong! The right answer is { correctAnswer }</p><Reset/></>)))}
+            : <><p>Bad luck, you're wrong! The right answer is { correctAnswer }</p><Reset btnStyle={"button"} /></>)))}
         </div>
     </div>
 )
