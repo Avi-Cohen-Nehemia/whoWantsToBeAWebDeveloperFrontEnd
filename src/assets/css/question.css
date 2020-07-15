@@ -173,18 +173,6 @@ body {
     text-align: center;
 }
 
-@media screen and (min-width: 1000px) {
-    .win-container p {
-        padding: 15vw;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .win-container p {
-        font-size: 2rem;
-    }
-}
-
 .button {
     display: block;
     border-radius: 5px;
@@ -202,10 +190,6 @@ body {
     margin: 0 auto;
     font-weight: bold;
     font-size: 3rem;
-}
-
-button:focus {
-    outline: none;
 }
 
 a {
@@ -300,4 +284,23 @@ a {
     .long-answers-mobile {
         font-size: 75%;
     }
+}
+
+@media screen and (min-width: 1000px) {
+    .win-container p {
+        padding: 15vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .win-container p {
+        font-size: 2rem;
+    }
+    .winning-button {
+        font-size: 2rem;
+    }
+}
+
+button:focus {
+    outline: none;
 }
