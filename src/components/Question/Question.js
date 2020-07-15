@@ -140,6 +140,8 @@ class Question extends Component {
 
         let longQuestions = question.length > 60;
 
+        let longQuestionsMobile = question.length > 30;
+
         return (
             <div className="question-bg">
                 <Alert
@@ -150,7 +152,7 @@ class Question extends Component {
                 />
                 <div className="question-answers">
                     <span className="question">
-                        <h2 className={ longQuestions ? "long-questions" : "" }>{ question }</h2>
+                        <h2 className={ longQuestions ? "long-questions" : (longQuestionsMobile ? "long-questions-mobile" : "") }>{ question }</h2>
                     </span>
                     <span className="answer-a" onClick={ this.handleAClick }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}

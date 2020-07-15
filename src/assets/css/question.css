@@ -164,10 +164,8 @@ a {
     text-decoration: none;
 }
 
-@media screen and (min-width: 600px) {
-    .long-answers {
-        font-size: 75%;
-    }
+.long-answers {
+    font-size: 75%;
 }
 
 @media screen and (max-width: 600px) {
@@ -241,6 +239,14 @@ a {
 
     .long-questions {
         font-size: 80%;
+    }
+
+    .long-questions-mobile {
+        font-size: 80%;
+    }
+
+    .long-answers {
+        font-size: 50%;
     }
 
     .long-answers-mobile {
