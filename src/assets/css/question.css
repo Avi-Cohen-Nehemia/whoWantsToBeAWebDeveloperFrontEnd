@@ -190,6 +190,10 @@ body {
     cursor: pointer;
 }
 
+.button:active {
+    filter: brightness(70%);
+}
+
 .winning-button {
     display: block;
     border-radius: 5px;
@@ -202,6 +206,10 @@ body {
 
 .winning-button:hover {
     cursor: pointer;
+}
+
+.winning-button:active {
+    filter: brightness(70%);
 }
 
 a {

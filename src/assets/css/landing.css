@@ -43,6 +43,10 @@
     cursor: pointer;
 }
 
+.landing-btn:active {
+    filter: brightness(70%);
+}
+
 .logo {
     margin-bottom: 3.5vh;
     margin-top: 2%;
