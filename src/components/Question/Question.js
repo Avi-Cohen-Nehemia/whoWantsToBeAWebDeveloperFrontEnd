@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-
 import Alert from "./../Alert";
-import Reset from "./../Reset";
+import "./../../assets/css/question.css";
 
 class Question extends Component {
 
@@ -38,7 +37,7 @@ class Question extends Component {
         this.handleCClick = this.handleCClick.bind(this);
         this.handleDClick = this.handleDClick.bind(this);
 
-        this.handleGo = this.handleGo.bind(this);
+        this.handleFinalAnswer = this.handleFinalAnswer.bind(this);
 
     }
 
@@ -58,7 +57,7 @@ class Question extends Component {
         this.setState({selected: 4});
     }
 
-    handleGo() {
+    handleFinalAnswer() {
         let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
 
         if(selected===1 && isCorrectA===1 ) {
@@ -117,7 +116,7 @@ class Question extends Component {
       }
 
     render() {
-        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
+        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, question } = this.state;
 
 
         let correctAnswer = "";
@@ -134,35 +133,49 @@ class Question extends Component {
         if (isCorrectD) {
             correctAnswer = answerD;
         }
-            
+          
+        let longAnswers = (answerA.length > 25 || answerB.length > 25 || answerC.length > 25 || answerD.length > 25);
+
+        let longAnswersMobile = (answerA.length > 18 || answerB.length > 18 || answerC.length > 18 || answerD.length > 18);
+
+        let longQuestions = question.length > 60;
+
+        let longQuestionsMobile = question.length > 30;
 
         return (
-            <> 
-                <h2>{ this.state.question }</h2>
-                <h4 onClick={ this.handleAClick }
-                    style={{border: selected === 1 ? "2px solid red" : null}}
-                        >{ answerA }</h4>
-                <h4 onClick={ this.handleBClick }
-                    style={{border: selected === 2 ? "2px solid red" : null}}
-                    >{ answerB }</h4>
-                <h4 onClick={ this.handleCClick }
-                    style={{border: selected === 3 ? "2px solid red" : null}}
-                    >{ answerC }</h4>
-                <h4 onClick={ this.handleDClick }
-                    style={{border: selected === 4 ? "2px solid red" : null}}>
-                        { answerD }</h4>
-                <button disabled={selected === 0} 
-                        onClick={ this.handleGo }>Go</button>
-
-                {this.state.answerCorrect !== null ?
+            <div className="question-bg">
                 <Alert
-                    correct={this.state.answerCorrect}
+                    selected={ selected }
+                    handleFinalAnswer={ this.handleFinalAnswer }
+                    correct={this.state.answerCorrect}  
                     correctAnswer={ correctAnswer }
                 />
-                : null }
-
-                <Reset />
-            </>
+                <div className="question-answers">
+                    <span className="question">
+                        <h2 className={ longQuestions ? "long-questions" : (longQuestionsMobile ? "long-questions-mobile" : "") }>{ question }</h2>
+                    </span>
+                    <span className="answer-a" onClick={ this.handleAClick }>
+                        <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
+                            style={{color: selected === 1 ? "rgb(224, 215, 78)" : "white"}}>
+                            <span className="bullet-point"><span>&#9830; </span>A:</span><span>{ answerA }</span></h4>
+                    </span>
+                    <span className="answer-b" onClick={ this.handleBClick }>
+                        <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
+                            style={{color: selected === 2 ? "rgb(224, 215, 78)" : "white"}}>
+                            <span className="bullet-point"><span>&#9830; </span>B:</span><span>{ answerB }</span></h4>
+                    </span>
+                    <span className="answer-c" onClick={ this.handleCClick }>
+                        <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
+                            style={{color: selected === 3 ? "rgb(224, 215, 78)" : "white"}}>
+                                <span className="bullet-point"><span>&#9830; </span>C:</span><span>{ answerC }</span></h4>
+                    </span>
+                    <span className="answer-d" onClick={ this.handleDClick }>
+                        <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
+                            style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white"}}>
+                            <span className="bullet-point"><span>&#9830; </span>D:</span><span>{ answerD }</span></h4>
+                    </span>  
+                </div> 
+            </div>
         );
     }
 }

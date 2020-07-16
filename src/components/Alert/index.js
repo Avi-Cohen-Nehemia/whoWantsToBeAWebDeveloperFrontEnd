@@ -3,9 +3,10 @@ import Alert from "./Alert";
 
 import { getQuestion } from "./../../data/actions/api";
 
-const mapStateToProps = ({ currentDifficulty }) => {
+const mapStateToProps = (state) => {
     return {
-        currentDifficulty,
+        currentDifficulty: state.currentDifficulty,
+        currentAmount: state.currentQuestion.amount,
     };
 };
 

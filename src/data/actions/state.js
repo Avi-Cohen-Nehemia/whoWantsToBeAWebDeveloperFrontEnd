@@ -3,6 +3,7 @@ export const updateCurrentQuestion = (data) => {
         type: "UPDATE_QUESTION",
         currentQuestion: {
             content: data[0].content,
+            amount: data[0].amount,
             answerA: {
                 answer: data[0].answers[0].answer,
                 correct: data[0].answers[0].correct
@@ -32,6 +33,7 @@ export const startGame = (data, name) => {
         playerName: name.playerName,
         currentQuestion: {
             content: data[0].content,
+            amount: data[0].amount,
             answerA: {
                 answer: data[0].answers[0].answer,
                 correct: data[0].answers[0].correct
