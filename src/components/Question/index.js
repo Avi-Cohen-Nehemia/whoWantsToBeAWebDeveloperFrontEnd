@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
         playerName: state.playerName,
         currentQuestion: state.currentQuestion,
         currentDifficulty: state.currentDifficulty,
+        isMuted: state.isMuted,
     };
 };
 

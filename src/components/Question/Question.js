@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import Alert from "./../Alert";
-import "./../../assets/css/question.css";
+import Sound from 'react-sound';
 import Mute from "../Mute";
+
+import letsPlay from "./../../assets/sounds/letsPlay.mp3";
+import upTo1000music from "./../../assets/sounds/upTo1000music.mp3";
+import "./../../assets/css/question.css";
+
 
 class Question extends Component {
 
@@ -27,6 +32,8 @@ class Question extends Component {
 
             selected: 0,
 
+            sound: 0,
+
             answerCorrect: null,
 
             currentDifficulty: props.currentDifficulty,
@@ -37,6 +44,7 @@ class Question extends Component {
         this.handleBClick = this.handleBClick.bind(this);
         this.handleCClick = this.handleCClick.bind(this);
         this.handleDClick = this.handleDClick.bind(this);
+        this.handleSoundFinishedPlaying = this.handleSoundFinishedPlaying.bind(this);
 
         this.handleFinalAnswer = this.handleFinalAnswer.bind(this);
 
@@ -56,6 +64,10 @@ class Question extends Component {
 
     handleDClick() {
         this.setState({selected: 4});
+    }
+
+    handleSoundFinishedPlaying() {
+        this.setState({sound: 1});
     }
 
     handleFinalAnswer() {
@@ -117,7 +129,7 @@ class Question extends Component {
       }
 
     render() {
-        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, question } = this.state;
+        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, question, sound } = this.state;
 
 
         let correctAnswer = "";
@@ -146,6 +158,22 @@ class Question extends Component {
         return (
             <div className="question-bg">
                 <Mute/>
+                { !this.props.isMuted && sound === 0 ?
+                <Sound
+                    url={ letsPlay }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                    onFinishedPlaying={ this.handleSoundFinishedPlaying }
+                />
+                : null }
+                { !this.props.isMuted && sound === 1 ?
+                <Sound
+                    url={ upTo1000music }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                    loop={ true }
+                />
+                : null }
                 <Alert
                     selected={ selected }
                     handleFinalAnswer={ this.handleFinalAnswer }
