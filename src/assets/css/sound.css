@@ -8,6 +8,10 @@
     z-index: 5;
 }
 
+.sound:hover {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
     .sound {
         top: 3.5%;

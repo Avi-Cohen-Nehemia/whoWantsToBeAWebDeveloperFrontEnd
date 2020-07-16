@@ -39,6 +39,10 @@
     margin-bottom: 3.5vh;
 }
 
+.landing-btn:hover {
+    cursor: pointer;
+}
+
 .logo {
     margin-bottom: 3.5vh;
     margin-top: 2%;

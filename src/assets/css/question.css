@@ -62,6 +62,10 @@ body {
     width: 85%;
 }
 
+.answers:hover {
+    cursor: pointer;
+}
+
 .answer-b {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
@@ -182,6 +186,10 @@ body {
     font-weight: bold;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
 .winning-button {
     display: block;
     border-radius: 5px;
@@ -190,6 +198,10 @@ body {
     margin: 0 auto;
     font-weight: bold;
     font-size: 3rem;
+}
+
+.winning-button:hover {
+    cursor: pointer;
 }
 
 a {
