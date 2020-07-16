@@ -5,6 +5,10 @@ import Mute from "../Mute";
 
 import letsPlay from "./../../assets/sounds/letsPlay.mp3";
 import upTo1000music from "./../../assets/sounds/upTo1000music.mp3";
+import upTo32000music from "./../../assets/sounds/upTo32000music.mp3";
+import finalAnswerSound from "./../../assets/sounds/finalAnswer.mp3";
+import correctAnswerSound from "./../../assets/sounds/correctAnswer.mp3";
+import wrongAnswerSound from "./../../assets/sounds/wrongAnswer.mp3";
 import "./../../assets/css/question.css";
 
 
@@ -72,33 +76,44 @@ class Question extends Component {
 
     handleFinalAnswer() {
         let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
+        
+        this.setState({sound: 2});
 
-        if(selected===1 && isCorrectA===1 ) {
-            this.setState({
-                answerCorrect: true,
-            })
-            this.props.handleDifficulty();
-        }
-        else if(selected===2 && isCorrectB===1 ) {
-            this.setState({
-                answerCorrect: true,
-            })
-            this.props.handleDifficulty();
-        }
-        else if(selected===3 && isCorrectC===1 ) {
-            this.setState({
-                answerCorrect: true,
-            })
-            this.props.handleDifficulty();
-        }
-        else if(selected===4 && isCorrectD===1 ) {
-            this.setState({
-                answerCorrect: true,
-            })
-            this.props.handleDifficulty();
-        } else {
-            this.setState({ answerCorrect: false })
-        }
+        setTimeout(() => {
+            if(selected===1 && isCorrectA===1 ) {
+                this.setState({
+                    answerCorrect: true,
+                    sound: 3,
+                })
+                this.props.handleDifficulty();
+            }
+            else if(selected===2 && isCorrectB===1 ) {
+                this.setState({
+                    answerCorrect: true,
+                    sound: 3,
+                })
+                this.props.handleDifficulty();
+            }
+            else if(selected===3 && isCorrectC===1 ) {
+                this.setState({
+                    answerCorrect: true,
+                    sound: 3,
+                })
+                this.props.handleDifficulty();
+            }
+            else if(selected===4 && isCorrectD===1 ) {
+                this.setState({
+                    answerCorrect: true,
+                    sound: 3,
+                })
+                this.props.handleDifficulty();
+            } else {
+                this.setState({
+                    answerCorrect: false,
+                    sound: 4,
+                })
+            }
+        }, 3500);
     }
 
     componentDidUpdate(prevProps) {
@@ -121,6 +136,8 @@ class Question extends Component {
 
             selected: 0,
 
+            sound: this.props.currentDifficulty === 1 ? 0 : 1,
+
             answerCorrect: null,
 
             currentDifficulty: this.props.currentDifficulty,
@@ -129,7 +146,7 @@ class Question extends Component {
       }
 
     render() {
-        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, question, sound } = this.state;
+        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, question, sound, currentDifficulty } = this.state;
 
 
         let correctAnswer = "";
@@ -168,10 +185,31 @@ class Question extends Component {
                 : null }
                 { !this.props.isMuted && sound === 1 ?
                 <Sound
-                    url={ upTo1000music }
+                    url={ currentDifficulty < 6 ? upTo1000music : upTo32000music }
                     playStatus={ Sound.status.PLAYING }
                     autoLoad={ true }
                     loop={ true }
+                />
+                : null }
+                { !this.props.isMuted && sound === 2 ?
+                <Sound
+                    url={ finalAnswerSound }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                />
+                : null }
+                { !this.props.isMuted && sound === 3 ?
+                <Sound
+                    url={ correctAnswerSound }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                />
+                : null }
+                { !this.props.isMuted && sound === 4 ?
+                <Sound
+                    url={ wrongAnswerSound }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
                 />
                 : null }
                 <Alert
