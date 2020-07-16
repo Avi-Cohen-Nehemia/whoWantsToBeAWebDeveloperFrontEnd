@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import Alert from "./../Alert";
+import Sound from 'react-sound';
+import Mute from "../Mute";
+
+import letsPlay from "./../../assets/sounds/letsPlay.mp3";
+import upTo1000music from "./../../assets/sounds/upTo1000music.mp3";
+import upTo32000music from "./../../assets/sounds/upTo32000music.mp3";
+import finalAnswerSound from "./../../assets/sounds/finalAnswer.mp3";
+import correctAnswerSound from "./../../assets/sounds/correctAnswer.mp3";
+import wrongAnswerSound from "./../../assets/sounds/wrongAnswer.mp3";
 import "./../../assets/css/question.css";
+
 
 class Question extends Component {
 
@@ -26,6 +36,8 @@ class Question extends Component {
 
             selected: 0,
 
+            sound: 0,
+
             answerCorrect: null,
 
             currentDifficulty: props.currentDifficulty,
@@ -36,6 +48,7 @@ class Question extends Component {
         this.handleBClick = this.handleBClick.bind(this);
         this.handleCClick = this.handleCClick.bind(this);
         this.handleDClick = this.handleDClick.bind(this);
+        this.handleSoundFinishedPlaying = this.handleSoundFinishedPlaying.bind(this);
 
         this.handleFinalAnswer = this.handleFinalAnswer.bind(this);
 
@@ -57,35 +70,50 @@ class Question extends Component {
         this.setState({selected: 4});
     }
 
+    handleSoundFinishedPlaying() {
+        this.setState({sound: 1});
+    }
+
     handleFinalAnswer() {
         let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
+        
+        this.setState({sound: 2});
 
-        if(selected===1 && isCorrectA===1 ) {
-            this.setState({
-                answerCorrect: true,
-            })
-            this.props.handleDifficulty();
-        }
-        else if(selected===2 && isCorrectB===1 ) {
-            this.setState({
-                answerCorrect: true,
-            })
-            this.props.handleDifficulty();
-        }
-        else if(selected===3 && isCorrectC===1 ) {
-            this.setState({
-                answerCorrect: true,
-            })
-            this.props.handleDifficulty();
-        }
-        else if(selected===4 && isCorrectD===1 ) {
-            this.setState({
-                answerCorrect: true,
-            })
-            this.props.handleDifficulty();
-        } else {
-            this.setState({ answerCorrect: false })
-        }
+        setTimeout(() => {
+            if(selected===1 && isCorrectA===1 ) {
+                this.setState({
+                    answerCorrect: true,
+                    sound: 3,
+                })
+                this.props.handleDifficulty();
+            }
+            else if(selected===2 && isCorrectB===1 ) {
+                this.setState({
+                    answerCorrect: true,
+                    sound: 3,
+                })
+                this.props.handleDifficulty();
+            }
+            else if(selected===3 && isCorrectC===1 ) {
+                this.setState({
+                    answerCorrect: true,
+                    sound: 3,
+                })
+                this.props.handleDifficulty();
+            }
+            else if(selected===4 && isCorrectD===1 ) {
+                this.setState({
+                    answerCorrect: true,
+                    sound: 3,
+                })
+                this.props.handleDifficulty();
+            } else {
+                this.setState({
+                    answerCorrect: false,
+                    sound: 4,
+                })
+            }
+        }, this.props.isMuted ? 0 : 3500);
     }
 
     componentDidUpdate(prevProps) {
@@ -108,6 +136,8 @@ class Question extends Component {
 
             selected: 0,
 
+            sound: this.props.currentDifficulty === 1 ? 0 : 1,
+
             answerCorrect: null,
 
             currentDifficulty: this.props.currentDifficulty,
@@ -116,7 +146,7 @@ class Question extends Component {
       }
 
     render() {
-        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, question } = this.state;
+        let { answerA, answerB, answerC, answerD, selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, question, sound, currentDifficulty } = this.state;
 
 
         let correctAnswer = "";
@@ -144,6 +174,44 @@ class Question extends Component {
 
         return (
             <div className="question-bg">
+                <Mute/>
+                { !this.props.isMuted && sound === 0 ?
+                <Sound
+                    url={ letsPlay }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                    onFinishedPlaying={ this.handleSoundFinishedPlaying }
+                />
+                : null }
+                { !this.props.isMuted && sound === 1 ?
+                <Sound
+                    url={ currentDifficulty < 6 ? upTo1000music : upTo32000music }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                    loop={ true }
+                />
+                : null }
+                { !this.props.isMuted && sound === 2 ?
+                <Sound
+                    url={ finalAnswerSound }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                />
+                : null }
+                { !this.props.isMuted && sound === 3 ?
+                <Sound
+                    url={ correctAnswerSound }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                />
+                : null }
+                { !this.props.isMuted && sound === 4 ?
+                <Sound
+                    url={ wrongAnswerSound }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                />
+                : null }
                 <Alert
                     selected={ selected }
                     handleFinalAnswer={ this.handleFinalAnswer }
@@ -173,8 +241,8 @@ class Question extends Component {
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point"><span>&#9830; </span>D:</span><span>{ answerD }</span></h4>
-                    </span>  
-                </div> 
+                    </span> 
+                </div>
             </div>
         );
     }

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
+import Sound from 'react-sound';
+import Mute from "./../Mute";
+import openingTheme from "./../../assets/sounds/openingTheme.mp3";
 import logo from "./../../assets/images/logoTransparent.png";
-
 import "./../../assets/css/landing.css";
 
 class Landing extends Component {
@@ -31,6 +33,7 @@ class Landing extends Component {
 
         return(
             <div className="landing-bg">
+                <Mute/>
                 <img
                     src={ logo }
                     alt="logo"
@@ -60,6 +63,14 @@ class Landing extends Component {
                         Start Game
                     </button>
                 </Link>
+                { !this.props.isMuted ?
+                <Sound
+                    url={ openingTheme }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                    loop={ true }
+                />
+                : null }
             </div>
         );
     }

@@ -3,8 +3,8 @@ import Reset from "./../Reset";
 import Button from "./../Button";
 
 const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, currentAmount, selected, handleFinalAnswer }) => (
-    <div className={currentDifficulty === 5 ? "win-wrapper" : "alert-wrapper"}>
-        <div className={currentDifficulty === 5 ? "win-container" : "alert-container"}>
+    <div className={currentDifficulty === 13 ? "win-wrapper" : "alert-wrapper"}>
+        <div className={currentDifficulty === 13 ? "win-container" : "alert-container"}>
             { !selected ? <p>Host: Question number { currentDifficulty } for £{ currentAmount }</p>
             : ( selected && correct === null ?
             <>
@@ -16,7 +16,7 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
                     btnStyle={ "button" }
                 />
             </>
-            : ( correct && currentDifficulty === 5 ?
+            : ( correct && currentDifficulty === 13 ?
             <><p>Congratulations!<br/>You are a Web Developer!</p>
                     <Reset btnStyle={"winning-button"} /></> :
             (correct ?
