@@ -174,8 +174,8 @@ class Question extends Component {
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point"><span>&#9830; </span>D:</span><span>{ answerD }</span></h4>
-                    </span>  
-                </div> 
+                    </span> 
+                </div>
             </div>
         );
     }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
+import Sound from 'react-sound';
+import openingTheme from "./../../assets/sounds/openingTheme.mp3";
 import logo from "./../../assets/images/logoTransparent.png";
 
 import "./../../assets/css/landing.css";
@@ -60,6 +62,12 @@ class Landing extends Component {
                         Start Game
                     </button>
                 </Link>
+                <Sound
+                    url={ openingTheme }
+                    playStatus={ Sound.status.PLAYING }
+                    autoLoad={ true }
+                    loop={ true }
+                />
             </div>
         );
     }
