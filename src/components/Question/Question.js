@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Alert from "./../Alert";
 import "./../../assets/css/question.css";
+import Mute from "../Mute";
 
 class Question extends Component {
 
@@ -144,6 +145,7 @@ class Question extends Component {
 
         return (
             <div className="question-bg">
+                <Mute/>
                 <Alert
                     selected={ selected }
                     handleFinalAnswer={ this.handleFinalAnswer }
