@@ -75,7 +75,7 @@ class Question extends Component {
     }
 
     handleFinalAnswer() {
-        let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
+        let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, currentDifficulty } = this.state;
         
         this.setState({sound: 2});
 
@@ -86,6 +86,9 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
+                if(currentDifficulty === 13) {
+                    this.props.handlePostGame();
+                }
             }
             else if(selected===2 && isCorrectB===1 ) {
                 this.setState({
@@ -93,6 +96,9 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
+                if(currentDifficulty === 13) {
+                    this.props.handlePostGame();
+                }
             }
             else if(selected===3 && isCorrectC===1 ) {
                 this.setState({
@@ -100,6 +106,9 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
+                if(currentDifficulty === 13) {
+                    this.props.handlePostGame();
+                }
             }
             else if(selected===4 && isCorrectD===1 ) {
                 this.setState({
@@ -107,13 +116,18 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
+                if(currentDifficulty === 13) {
+                    this.props.handlePostGame();
+                }
             } else {
                 this.setState({
                     answerCorrect: false,
                     sound: 4,
                 })
+                this.props.handlePostGame();
             }
         }, this.props.isMuted ? 0 : 3500);
+
     }
 
     componentDidUpdate(prevProps) {

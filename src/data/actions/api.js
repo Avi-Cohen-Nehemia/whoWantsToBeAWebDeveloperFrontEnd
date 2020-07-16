@@ -23,3 +23,12 @@ export const setGame = (name) => {
         });
     };
 }
+
+export const postGame = () => {
+    return (dispatch, getState) => {
+        let { currentDifficulty } = getState();
+        axios.post('games/statistics', {
+            score: currentDifficulty,
+        });
+    }
+}
