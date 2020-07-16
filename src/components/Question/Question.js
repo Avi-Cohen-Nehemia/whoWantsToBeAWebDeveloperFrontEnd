@@ -113,7 +113,7 @@ class Question extends Component {
                     sound: 4,
                 })
             }
-        }, 3500);
+        }, this.props.isMuted ? 0 : 3500);
     }
 
     componentDidUpdate(prevProps) {
