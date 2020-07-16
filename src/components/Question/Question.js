@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Alert from "./../Alert";
-import Sound from 'react-sound';
 import "./../../assets/css/question.css";
 
 class Question extends Component {

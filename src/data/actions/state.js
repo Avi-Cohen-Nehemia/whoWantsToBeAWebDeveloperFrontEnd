@@ -68,3 +68,9 @@ export const resetGame = () => {
         type: "RESET_GAME",
     }
 }
+
+export const setSound = () => {
+    return {
+        type: "SET_SOUND",
+    }
+}

@@ -23,9 +23,17 @@ const playerName = (state, action) => {
     }
 }
 
+const setSound = (state) => {
+    return {
+        ...state,
+        isMuted: !state.isMuted
+    }
+}
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "START_GAME" : return playerName(state, action);
+        case "SET_SOUND" : return setSound(state);
         case "UPDATE_QUESTION": return updateQuestion(state, action);
         case "UPDATE_DIFFICULTY": return updateDifficultyReducer(state);
         case "RESET_GAME": return initialState;
