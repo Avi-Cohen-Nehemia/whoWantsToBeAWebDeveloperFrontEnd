@@ -1,5 +1,6 @@
 import axios from "./../../axios";
 import { updateCurrentQuestion } from "./state";
+import { setStatistics } from "./state";
 import { startGame } from "./state";
 
 export const getQuestion = () => {
@@ -27,8 +28,13 @@ export const setGame = (name) => {
 export const postGame = () => {
     return (dispatch, getState) => {
         let { currentDifficulty } = getState();
-        axios.post('games/statistics', {
-            score: currentDifficulty,
+
+        axios.post('games/statistics', {score: currentDifficulty})
+        .then(() => {
+            axios.get('games/statistics')
+            .then(({ data }) => {
+                dispatch(setStatistics(data));
+            });
         });
     }
 }
