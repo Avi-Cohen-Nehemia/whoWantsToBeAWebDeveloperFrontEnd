@@ -2,7 +2,7 @@ import React from "react";
 import Reset from "./../Reset";
 import Button from "./../Button";
 
-const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, currentAmount, selected, handleFinalAnswer, statistics, playerName }) => (
+const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, currentAmount, selected, handleFinalAnswer, statistics, playerName, gameOverLoaded }) => (
     <div className={currentDifficulty === 13 ? "win-wrapper" : "alert-wrapper"}>
         <div className={currentDifficulty === 13 ? "win-container" : "alert-container"}>
             { !selected ? <p>Host: Question number { currentDifficulty } for £{ currentAmount }</p>
@@ -33,12 +33,13 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
                     btnStyle={ "button" }
                 />
             </>
-            :   <>
+            : ( !gameOverLoaded ? null :
+                <>
                     <p>Bad luck { playerName }, you're wrong! The right answer is { correctAnswer }</p>
                     <p>Well done though, you did better than { statistics }% of the people who played before!</p>
                     <Reset btnStyle={"button"} />
                 </>
-            )))}
+            ))))}
         </div>
     </div>
 )

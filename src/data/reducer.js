@@ -41,6 +41,7 @@ const setStatistics = (state, action) => {
     return {
         ...state,
         statistics: action.data,
+        gameOverLoaded: true,
     }
 }
 

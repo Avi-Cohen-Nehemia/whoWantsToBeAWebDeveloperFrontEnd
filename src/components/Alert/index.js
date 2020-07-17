@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
         currentDifficulty: state.currentDifficulty,
         currentAmount: state.currentQuestion.amount,
         statistics: state.statistics,
+        gameOverLoaded: state.gameOverLoaded,
     };
 };
 
