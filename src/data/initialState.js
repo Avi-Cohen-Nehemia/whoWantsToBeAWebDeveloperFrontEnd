@@ -2,6 +2,7 @@ export const initialState = {
     playerName: "",
     currentDifficulty: 1,
     isMuted: false,
+    statistics: null,
 
     currentQuestion: {
         content: "",
