@@ -86,7 +86,7 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
-                if(currentDifficulty === 13) {
+                if(currentDifficulty === 12) {
                     this.props.handlePostGame();
                 }
             }
@@ -96,7 +96,7 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
-                if(currentDifficulty === 13) {
+                if(currentDifficulty === 12) {
                     this.props.handlePostGame();
                 }
             }
@@ -106,7 +106,7 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
-                if(currentDifficulty === 13) {
+                if(currentDifficulty === 12) {
                     this.props.handlePostGame();
                 }
             }
@@ -116,7 +116,7 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
-                if(currentDifficulty === 13) {
+                if(currentDifficulty === 12) {
                     this.props.handlePostGame();
                 }
             } else {

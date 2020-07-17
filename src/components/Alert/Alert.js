@@ -17,9 +17,13 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
                 />
             </>
             : ( correct && currentDifficulty === 13 ?
-            <><p>Congratulations { playerName }!<br/>You are a Web Developer!</p>
-                    <Reset btnStyle={"winning-button"} /></> :
-            (correct ?
+            <>
+                <p>Congratulations { playerName }!<br/>
+                You are a Web Developer!</p>
+                <p>Well done! Only { 100 - statistics }% of players have won the game!</p>
+                <Reset btnStyle={"winning-button"} />
+            </>
+            : (correct ?
             <>
                 <p>You are correct!</p>
                 <Button
