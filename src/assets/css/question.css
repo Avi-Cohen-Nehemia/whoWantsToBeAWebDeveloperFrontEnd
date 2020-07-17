@@ -306,13 +306,7 @@ a {
     }
 }
 
-@media screen and (min-width: 1000px) {
-    .win-container p {
-        padding: 15vw;
-    }
-}
-
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1000px) {
     .win-container p {
         font-size: 2rem;
     }
@@ -323,4 +317,10 @@ a {
 
 button:focus {
     outline: none;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
 }

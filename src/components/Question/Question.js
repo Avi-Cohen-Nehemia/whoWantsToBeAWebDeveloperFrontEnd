@@ -75,7 +75,7 @@ class Question extends Component {
     }
 
     handleFinalAnswer() {
-        let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD } = this.state;
+        let { selected, isCorrectA, isCorrectB, isCorrectC, isCorrectD, currentDifficulty } = this.state;
         
         this.setState({sound: 2});
 
@@ -86,6 +86,9 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
+                if(currentDifficulty === 12) {
+                    this.props.handlePostGame();
+                }
             }
             else if(selected===2 && isCorrectB===1 ) {
                 this.setState({
@@ -93,6 +96,9 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
+                if(currentDifficulty === 12) {
+                    this.props.handlePostGame();
+                }
             }
             else if(selected===3 && isCorrectC===1 ) {
                 this.setState({
@@ -100,6 +106,9 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
+                if(currentDifficulty === 12) {
+                    this.props.handlePostGame();
+                }
             }
             else if(selected===4 && isCorrectD===1 ) {
                 this.setState({
@@ -107,13 +116,18 @@ class Question extends Component {
                     sound: 3,
                 })
                 this.props.handleDifficulty();
+                if(currentDifficulty === 12) {
+                    this.props.handlePostGame();
+                }
             } else {
                 this.setState({
                     answerCorrect: false,
                     sound: 4,
                 })
+                this.props.handlePostGame();
             }
         }, this.props.isMuted ? 0 : 3500);
+
     }
 
     componentDidUpdate(prevProps) {
@@ -215,7 +229,7 @@ class Question extends Component {
                 <Alert
                     selected={ selected }
                     handleFinalAnswer={ this.handleFinalAnswer }
-                    correct={this.state.answerCorrect}  
+                    correct={ this.state.answerCorrect }
                     correctAnswer={ correctAnswer }
                 />
                 <div className="question-answers">
@@ -225,22 +239,34 @@ class Question extends Component {
                     <span className="answer-a" onClick={ this.handleAClick }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 1 ? "rgb(224, 215, 78)" : "white"}}>
-                            <span className="bullet-point"><span>&#9830; </span>A:</span><span>{ answerA }</span></h4>
+                            <span className="bullet-point">
+                                <span>&#9830; </span>A:</span><span>{ answerA }
+                            </span>
+                        </h4>
                     </span>
                     <span className="answer-b" onClick={ this.handleBClick }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 2 ? "rgb(224, 215, 78)" : "white"}}>
-                            <span className="bullet-point"><span>&#9830; </span>B:</span><span>{ answerB }</span></h4>
+                            <span className="bullet-point">
+                                <span>&#9830; </span>B:</span><span>{ answerB }
+                            </span>
+                        </h4>
                     </span>
                     <span className="answer-c" onClick={ this.handleCClick }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 3 ? "rgb(224, 215, 78)" : "white"}}>
-                                <span className="bullet-point"><span>&#9830; </span>C:</span><span>{ answerC }</span></h4>
+                            <span className="bullet-point">
+                                <span>&#9830; </span>C:</span><span>{ answerC }
+                            </span>
+                        </h4>
                     </span>
                     <span className="answer-d" onClick={ this.handleDClick }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white"}}>
-                            <span className="bullet-point"><span>&#9830; </span>D:</span><span>{ answerD }</span></h4>
+                            <span className="bullet-point">
+                                <span>&#9830; </span>D:</span><span>{ answerD }
+                            </span>
+                        </h4>
                     </span> 
                 </div>
             </div>

@@ -5,8 +5,11 @@ import { getQuestion } from "./../../data/actions/api";
 
 const mapStateToProps = (state) => {
     return {
+        playerName: state.playerName,
         currentDifficulty: state.currentDifficulty,
         currentAmount: state.currentQuestion.amount,
+        statistics: state.statistics,
+        gameOverLoaded: state.gameOverLoaded,
     };
 };
 

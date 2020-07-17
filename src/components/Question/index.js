@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Question from "./Question";
 
-import { getQuestion } from "./../../data/actions/api";
+import { getQuestion, postGame } from "./../../data/actions/api";
 
 import { updateDifficulty } from "./../../data/actions/state";
 
@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleLoad: () => dispatch(getQuestion()),
         handleDifficulty: () => dispatch(updateDifficulty()),
+        handlePostGame: () => dispatch(postGame()),
     }
 }
 

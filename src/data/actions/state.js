@@ -74,3 +74,10 @@ export const setSound = () => {
         type: "SET_SOUND",
     }
 }
+
+export const setStatistics = (data) => {
+    return {
+        type: "SET_STATISTICS",
+        data: data,
+    }
+}
