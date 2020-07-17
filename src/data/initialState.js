@@ -3,6 +3,7 @@ export const initialState = {
     currentDifficulty: 1,
     isMuted: false,
     statistics: null,
+    gameOverLoaded: false,
 
     currentQuestion: {
         content: "",
