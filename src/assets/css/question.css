@@ -306,12 +306,6 @@ a {
     }
 }
 
-@media screen and (min-width: 1000px) {
-    .win-container p {
-        padding: 15vw;
-    }
-}
-
 @media screen and (max-width: 550px) {
     .win-container p {
         font-size: 2rem;
