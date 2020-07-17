@@ -50,7 +50,7 @@ class Landing extends Component {
                     <input
                         className="input"
                         type="text"
-                        value={ this.playerName }
+                        value={ this.state.playerName }
                         onChange={ this.handlePlayerName }
                         id="name"
                     />
@@ -59,6 +59,7 @@ class Landing extends Component {
                     <button
                         className="landing-btn"
                         onClick={ this.handleStart }
+                        disabled={ this.state.playerName === "" }
                     >
                         Start Game
                     </button>
