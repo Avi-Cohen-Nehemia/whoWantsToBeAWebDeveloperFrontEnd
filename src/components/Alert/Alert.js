@@ -2,8 +2,8 @@ import React from "react";
 import HostQuestion from "./../HostQuestion";
 import FinalAnswerAlert from "./../FinalAnswerAlert";
 import CongratulationsAlert from "./../CongratulationsAlert";
+import CorrectAlert from "./../CorrectAlert";
 import Reset from "./../Reset";
-import Button from "./../Button";
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
@@ -15,24 +15,14 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
             : ( selected && correct === null ?
             <FinalAnswerAlert 
                 selected={selected}
-                handleFinalAnswer={handleFinalAnswer} />
+                handleFinalAnswer={ handleFinalAnswer } />
             : ( correct && currentDifficulty === 13 ?
             ( !gameOverLoaded ?
-                <div className="spinner">
-                    <Loader type="TailSpin" color="#FFF" height={100} width={100}/>
-                </div> :
-            <CongratulationsAlert />
+            <div className="spinner"><Loader type="TailSpin" color="#FFF" height={100} width={100}/></div>
+            : <CongratulationsAlert />
             )
             : (correct ?
-            <>
-                <p>You are correct!</p>
-                <Button
-                    text={ "Next Question" }
-                    color={ "#28a745" }
-                    click={ handleSubmit }
-                    btnStyle={ "button" }
-                />
-            </>
+            <CorrectAlert handleSubmit={ handleSubmit }/>
             : ( !gameOverLoaded ?
             <div className="spinner"><Loader type="TailSpin" color="#FFF" height={100} width={100}/></div> :
                 <>
