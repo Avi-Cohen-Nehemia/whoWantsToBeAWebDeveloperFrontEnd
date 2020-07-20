@@ -1,5 +1,6 @@
 import React from "react";
 import HostQuestion from "./../HostQuestion";
+import FinalAnswerAlert from "./../FinalAnswerAlert";
 import Reset from "./../Reset";
 import Button from "./../Button";
 import Loader from 'react-loader-spinner'
@@ -11,15 +12,9 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
             { !selected ?
             <HostQuestion />
             : ( selected && correct === null ?
-            <>
-                <p>Host: Answer { selected === 1 ? "A" : (selected === 2 ? "B" : (selected === 3 ? "C" : "D")) }, is that your final answer { playerName }?</p>
-                <Button
-                    text={ "Final Answer" }
-                    color={ "#ffc107" }
-                    click={ handleFinalAnswer }
-                    btnStyle={ "button" }
-                />
-            </>
+            <FinalAnswerAlert 
+                selected={selected}
+                handleFinalAnswer={handleFinalAnswer} />
             : ( correct && currentDifficulty === 13 ?
             ( !gameOverLoaded ?
             <div className="spinner"><Loader type="TailSpin" color="#FFF" height={100} width={100}/></div> :
