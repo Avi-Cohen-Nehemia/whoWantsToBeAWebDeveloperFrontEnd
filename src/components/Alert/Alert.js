@@ -2,7 +2,7 @@ import React from "react";
 import HostQuestion from "./../HostQuestion";
 import FinalAnswerAlert from "./../FinalAnswerAlert";
 import CongratulationsAlert from "./../CongratulationsAlert";
-import CorrectAlert from "./../CorrectAlert";
+import CorrectAnswerAlert from "../CorrectAnswerAlert";
 import Reset from "./../Reset";
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -22,7 +22,7 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
             : <CongratulationsAlert />
             )
             : (correct ?
-            <CorrectAlert handleSubmit={ handleSubmit }/>
+            <CorrectAnswerAlert handleSubmit={ handleSubmit }/>
             : ( !gameOverLoaded ?
             <div className="spinner"><Loader type="TailSpin" color="#FFF" height={100} width={100}/></div> :
                 <>
