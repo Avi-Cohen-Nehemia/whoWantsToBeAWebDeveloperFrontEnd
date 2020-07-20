@@ -1,6 +1,7 @@
 import React from "react";
 import HostQuestion from "./../HostQuestion";
 import FinalAnswerAlert from "./../FinalAnswerAlert";
+import CongratulationsAlert from "./../CongratulationsAlert";
 import Reset from "./../Reset";
 import Button from "./../Button";
 import Loader from 'react-loader-spinner'
@@ -17,13 +18,10 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
                 handleFinalAnswer={handleFinalAnswer} />
             : ( correct && currentDifficulty === 13 ?
             ( !gameOverLoaded ?
-            <div className="spinner"><Loader type="TailSpin" color="#FFF" height={100} width={100}/></div> :
-            <>
-                <p>Congratulations { playerName }!<br/>
-                You are a Web Developer!</p>
-                <p>Well done! Only { 100 - statistics }% of players have won the game!</p>
-                <Reset btnStyle={"winning-button"} />
-            </>
+                <div className="spinner">
+                    <Loader type="TailSpin" color="#FFF" height={100} width={100}/>
+                </div> :
+            <CongratulationsAlert />
             )
             : (correct ?
             <>
