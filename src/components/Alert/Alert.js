@@ -1,4 +1,5 @@
 import React from "react";
+import HostQuestion from "./../HostQuestion";
 import Reset from "./../Reset";
 import Button from "./../Button";
 import Loader from 'react-loader-spinner'
@@ -8,7 +9,7 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, curren
     <div className={currentDifficulty === 13 || correct === false ? "win-wrapper" : "alert-wrapper"}>
         <div className={currentDifficulty === 13 || correct === false ? "win-container" : "alert-container"}>   
             { !selected ?
-            <p>Host: Question number { currentDifficulty } for £{ currentAmount }</p>
+            <HostQuestion />
             : ( selected && correct === null ?
             <>
                 <p>Host: Answer { selected === 1 ? "A" : (selected === 2 ? "B" : (selected === 3 ? "C" : "D")) }, is that your final answer { playerName }?</p>
