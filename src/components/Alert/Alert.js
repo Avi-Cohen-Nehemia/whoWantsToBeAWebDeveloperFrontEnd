@@ -10,8 +10,12 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, select
     <div className={ currentDifficulty === 15 || gameOverLoaded === true ? "win-wrapper" : "alert-wrapper" }>
         <div className={ currentDifficulty === 15 || gameOverLoaded === true ? "win-container" : "alert-container" }>
             {
-            /*if the user refreshed after getting a question wrong*/
-            gameOverLoaded && currentDifficulty !== 15 ? <WrongAnswerAlert correctAnswer={ correctAnswer }/>
+            /*if the user refreshed the browser after wining the game*/
+            gameOverLoaded && currentDifficulty === 15 ?
+            <CongratulationsAlert/>
+
+            /*if the user refreshed the browser after getting a question wrong*/
+            : (gameOverLoaded ? <WrongAnswerAlert correctAnswer={ correctAnswer }/>
 
             /*if they didn't select an asnwer*/
             : (!selected ?
@@ -28,7 +32,7 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, select
             
             /*if they are wrong*/
             : (!gameOverLoaded ? <Spinner/> : <WrongAnswerAlert correctAnswer={ correctAnswer }/>)
-            ))))}
+            )))))}
         </div>
     </div>
 )
