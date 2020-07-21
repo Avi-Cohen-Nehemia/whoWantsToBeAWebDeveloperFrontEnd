@@ -7,10 +7,14 @@ import WrongAnswerAlert from "./../WrongAnswerAlert";
 import Spinner from "./../Spinner";
 
 const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, selected, handleFinalAnswer, gameOverLoaded }) => (
-    <div className={ currentDifficulty === 13 || correct === false ? "win-wrapper" : "alert-wrapper" }>
-        <div className={ currentDifficulty === 13 || correct === false ? "win-container" : "alert-container" }>
-            { !selected ?
+    <div className={ currentDifficulty === 13 || gameOverLoaded === true ? "win-wrapper" : "alert-wrapper" }>
+        <div className={ currentDifficulty === 13 || gameOverLoaded === true ? "win-container" : "alert-container" }>
+            {
+            /*if the user refreshed after getting a question wrong*/
+            gameOverLoaded ? <WrongAnswerAlert correctAnswer={ correctAnswer }/>
+
             /*if they didn't select an asnwer*/
+            : (!selected ?
             <HostQuestion/>
 
             /*if they selected an asnwer but did not confirm yet*/
@@ -24,7 +28,7 @@ const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, select
             
             /*if they are wrong*/
             : (!gameOverLoaded ? <Spinner/> : <WrongAnswerAlert correctAnswer={ correctAnswer }/>)
-            )))}
+            ))))}
         </div>
     </div>
 )
