@@ -7,8 +7,8 @@ import WrongAnswerAlert from "./../WrongAnswerAlert";
 import Spinner from "./../Spinner";
 
 const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, selected, handleFinalAnswer, gameOverLoaded }) => (
-    <div className={ currentDifficulty === 16 || gameOverLoaded === true ? "win-wrapper" : "alert-wrapper" }>
-        <div className={ currentDifficulty === 16 || gameOverLoaded === true ? "win-container" : "alert-container" }>
+    <div className={ (correct && currentDifficulty === 16) || gameOverLoaded === true ? "win-wrapper" : "alert-wrapper" }>
+        <div className={ (correct && currentDifficulty === 16) || gameOverLoaded === true ? "win-container" : "alert-container" }>
             {
             /*if the user refreshed the browser after wining the game*/
             gameOverLoaded && currentDifficulty === 16 ?
