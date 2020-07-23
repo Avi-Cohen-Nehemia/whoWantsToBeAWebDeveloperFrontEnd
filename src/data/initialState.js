@@ -1,7 +1,7 @@
 export const initialState = {
     playerName: "",
     currentDifficulty: 1,
-    isMuted: false,
+    isMuted: true,
     statistics: null,
     gameOverLoaded: false,
 
