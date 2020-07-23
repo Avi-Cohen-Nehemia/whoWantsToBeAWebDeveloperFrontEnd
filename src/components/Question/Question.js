@@ -80,41 +80,14 @@ class Question extends Component {
         this.setState({sound: 2});
 
         setTimeout(() => {
-            if(selected === 1 && isCorrectA === 1 ) {
+            if((selected === 1 && isCorrectA === 1) || (selected === 2 && isCorrectB === 1) || (selected === 3 && isCorrectC === 1) || (selected === 4 && isCorrectD === 1)) {
                 this.setState({
                     answerCorrect: true,
                     sound: 3,
                 })
                 if(currentDifficulty === 15) {
                     this.props.handlePostGame();
-                }
-            }
-            else if(selected === 2 && isCorrectB === 1 ) {
-                this.setState({
-                    answerCorrect: true,
-                    sound: 3,
-                })
-                if(currentDifficulty === 15) {
-                    this.props.handlePostGame();
-                }
-            }
-            else if(selected === 3 && isCorrectC === 1 ) {
-                this.setState({
-                    answerCorrect: true,
-                    sound: 3,
-                })
-                if(currentDifficulty === 15) {
-                    this.props.handlePostGame();
-                }
-            }
-            else if(selected === 4 && isCorrectD === 1 ) {
-                this.setState({
-                    answerCorrect: true,
-                    sound: 3,
-                })
-                if(currentDifficulty === 15) {
-                    this.props.handlePostGame();
-                }
+                } 
             } else {
                 this.setState({
                     answerCorrect: false,
