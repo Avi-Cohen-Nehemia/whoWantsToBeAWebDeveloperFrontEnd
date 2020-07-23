@@ -5,7 +5,7 @@ import Question from './components/Question';
 import FourOhFour from './components/FourOhFour';
 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch,
 } from "react-router-dom";
