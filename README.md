@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Who Wants to be a Web Developer App
 
-## Available Scripts
+This app was created by [Avi Cohen-Nehemia](https://github.com/Avi-Cohen-Nehemia) and [Maddy McMahon](https://github.com/mdm106), using pair programming.
 
-In the project directory, you can run:
+This is the repository for the front-end of the app. The app can be viewed [here](https://avi-cohen-nehemia.github.io/whoWantsToBeAWebDeveloperFrontEnd/#/).
 
-### `npm start`
+The app utilises an API on the back-end, and the repository for this can be found [here](https://github.com/Avi-Cohen-Nehemia/whoWantsToBeAWebDeveloperBackEnd).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack / Frameworks
+- React
+- Redux
+- HTML
+- CSS
+- Javascript
+- JSX
+For the API (https://github.com/Avi-Cohen-Nehemia/whoWantsToBeAWebDeveloperBackEnd) the following were used:
+- PHP 
+- Laravel
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+MVP:
+- App that displays multiple choice questions to the user regarding aspects of web development. The questions are retrieved from the API backend of the app. The user selects an answer and if they are right they are shown further questions of increasing difficulty, until they have answered 15 questions correctly and have thus won the game. If the user gets a question wrong they are alerted to this and shown a button to reset the game.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Additional features implemented in app:
+- On screen prompts from 'host' to guide player through the game. The name the player enters on landing page is used to personalise the prompts.
 
-### `npm run build`
+- Themed music plays according to the stage of the game that the player is at. Mute button available to control whether sound plays. Sound is muted on launch of app to comply with brower autoplay policies.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- When a player gets a question wrong, the resulting alert tells the player what the right answer was.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Fireworks CSS effect (source: https://jsfiddle.net/elin/7m3bL/) appears on alert to congratulate player on winning the game.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Upon getting a question wrong, or completion of the game, the current difficulty of the question is posted to the API. After the POST request, a GET request to the API is then made to return the % of all games in which players have finished at a lower level than the current game. This return is used to display a statistic to players to compare their performance to other players. The statistic is omitted for players that get the first question wrong.
 
-### `npm run eject`
+- Responsive styling for all screen sizes.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Version Management
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Git and GitHub used throughout project. The Feature Branch Workflow was used, by working on feature branches that were merged back into master using pull requests.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to install the project:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. cd into the directory on your local machine where you would like the project to be saved
+```bash
+cd {directory}
+```
+2. Clone the repository to your local machine as follows
+```bash
+git clone {git@github.com:Avi-Cohen-Nehemia/whoWantsToBeAWebDeveloperFrontEnd.git} {foldername}
+```
+3. Run npm install to install all the required packages
+```bash
+npm install
+```
+4. Run npm start to run the app locally in development mode
+```bash
+npm start
+```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
