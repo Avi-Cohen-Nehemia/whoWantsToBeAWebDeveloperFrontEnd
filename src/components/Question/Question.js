@@ -44,30 +44,13 @@ class Question extends Component {
             
         };
 
-        this.handleAClick = this.handleAClick.bind(this);
-        this.handleBClick = this.handleBClick.bind(this);
-        this.handleCClick = this.handleCClick.bind(this);
-        this.handleDClick = this.handleDClick.bind(this);
+        this.handleAnswerClick = this.handleAnswerClick.bind(this);
         this.handleSoundFinishedPlaying = this.handleSoundFinishedPlaying.bind(this);
-
         this.handleFinalAnswer = this.handleFinalAnswer.bind(this);
-
     }
 
-    handleAClick() {
-        this.setState({selected: 1});
-    }
-
-    handleBClick() {
-        this.setState({selected: 2});
-    }
-
-    handleCClick() {
-        this.setState({selected: 3});
-    }
-
-    handleDClick() {
-        this.setState({selected: 4});
+    handleAnswerClick(num) {
+        this.setState({selected: num});
     }
 
     handleSoundFinishedPlaying() {
@@ -205,7 +188,7 @@ class Question extends Component {
                     <span className="question">
                         <h2 className={ longQuestions ? "long-questions" : (longQuestionsMobile ? "long-questions-mobile" : "") }>{ question }</h2>
                     </span>
-                    <span className="answer-a" onClick={ this.handleAClick }>
+                    <span className="answer-a" onClick={ () => this.handleAnswerClick(1) }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 1 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point">
@@ -213,7 +196,7 @@ class Question extends Component {
                             </span>
                         </h4>
                     </span>
-                    <span className="answer-b" onClick={ this.handleBClick }>
+                    <span className="answer-b" onClick={ () => this.handleAnswerClick(2) }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 2 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point">
@@ -221,7 +204,7 @@ class Question extends Component {
                             </span>
                         </h4>
                     </span>
-                    <span className="answer-c" onClick={ this.handleCClick }>
+                    <span className="answer-c" onClick={ () => this.handleAnswerClick(3) }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 3 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point">
@@ -229,7 +212,7 @@ class Question extends Component {
                             </span>
                         </h4>
                     </span>
-                    <span className="answer-d" onClick={ this.handleDClick }>
+                    <span className="answer-d" onClick={ () => this.handleAnswerClick(4) }>
                         <h4 className={"answers" + (longAnswers ? " long-answers" : ( longAnswersMobile ? " long-answers-mobile" : "" ))}
                             style={{color: selected === 4 ? "rgb(224, 215, 78)" : "white"}}>
                             <span className="bullet-point">
