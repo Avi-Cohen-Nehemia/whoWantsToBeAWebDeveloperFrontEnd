@@ -5,6 +5,7 @@ const mapStateToProps = (state) => {
     return {
         playerName: state.playerName,
         statistics: state.statistics,
+        currentDifficulty: state.currentDifficulty,
     };
 };
 
