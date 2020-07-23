@@ -7,32 +7,37 @@ import WrongAnswerAlert from "./../WrongAnswerAlert";
 import Spinner from "./../Spinner";
 
 const Alert = ({ correct, handleSubmit, correctAnswer, currentDifficulty, selected, handleFinalAnswer, gameOverLoaded }) => (
-    <div className={ (correct && currentDifficulty === 16) || gameOverLoaded === true ? "win-wrapper" : "alert-wrapper" }>
-        <div className={ (correct && currentDifficulty === 16) || gameOverLoaded === true ? "win-container" : "alert-container" }>
+    <div className={ (correct && currentDifficulty === 15) || gameOverLoaded === true ? "win-wrapper" : "alert-wrapper" }>
+        <div className={ (correct && currentDifficulty === 15) || gameOverLoaded === true ? "win-container" : "alert-container" }>
             {
             /*if the user refreshed the browser after wining the game*/
-            gameOverLoaded && currentDifficulty === 16 ?
+            gameOverLoaded && currentDifficulty === 15 ?
             <CongratulationsAlert/>
 
             /*if the user refreshed the browser after getting a question wrong*/
-            : (gameOverLoaded ? <WrongAnswerAlert correctAnswer={ correctAnswer }/>
+            : (gameOverLoaded ?
+            <WrongAnswerAlert correctAnswer={ correctAnswer }/>
 
             /*if they didn't select an asnwer*/
             : (!selected ?
             <HostQuestion/>
 
             /*if they selected an asnwer but did not confirm yet*/
-            : (selected && correct === null ? <FinalAnswerAlert selected={ selected } handleFinalAnswer={ handleFinalAnswer }/>
+            : (selected && correct === null ?
+            <FinalAnswerAlert selected={ selected } handleFinalAnswer={ handleFinalAnswer }/>
 
             /*if they confirmed and are correct, and it's the last question*/
-            : (correct && currentDifficulty === 16 ? (!gameOverLoaded ? <Spinner/> : <CongratulationsAlert/>)
+            : (correct && currentDifficulty === 15 ?
+            (!gameOverLoaded ? <Spinner/> : <CongratulationsAlert/>)
 
             /*if they confirmed and are correct but not last question*/
-            : (correct ? <CorrectAnswerAlert handleSubmit={ handleSubmit }/>
+            : (correct ?
+            <CorrectAnswerAlert handleSubmit={ handleSubmit }/>
             
             /*if they are wrong*/
-            : (!gameOverLoaded ? <Spinner/> : <WrongAnswerAlert correctAnswer={ correctAnswer }/>)
-            )))))}
+            : (!gameOverLoaded ?
+            <Spinner/> : <WrongAnswerAlert correctAnswer={ correctAnswer }/>
+            ))))))}
         </div>
     </div>
 )

@@ -3,8 +3,6 @@ import Question from "./Question";
 
 import { getQuestion, postGame } from "./../../data/actions/api";
 
-import { updateDifficulty } from "./../../data/actions/state";
-
 const mapStateToProps = (state) => {
     return {
         playerName: state.playerName,
@@ -17,7 +15,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleLoad: () => dispatch(getQuestion()),
-        handleDifficulty: () => dispatch(updateDifficulty()),
         handlePostGame: () => dispatch(postGame()),
     }
 }

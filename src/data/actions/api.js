@@ -5,7 +5,7 @@ import { startGame } from "./state";
 
 export const getQuestion = () => {
     return (dispatch, getState) => {
-        const difficulty = getState().currentDifficulty;
+        const difficulty = getState().currentDifficulty + 1;
 
         axios.get(`questions/${difficulty}`)
         .then(({ data }) => {

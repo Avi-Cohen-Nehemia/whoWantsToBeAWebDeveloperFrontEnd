@@ -57,12 +57,6 @@ export const startGame = (data, name) => {
     };
 };
 
-export const updateDifficulty = () => {
-    return {
-        type: "UPDATE_DIFFICULTY",
-    }
-}
-
 export const resetGame = () => {
     return {
         type: "RESET_GAME",

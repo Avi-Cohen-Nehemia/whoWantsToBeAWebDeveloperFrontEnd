@@ -5,15 +5,9 @@ const updateQuestion = (state, action) => {
     return {
         ...state,
         currentQuestion: action.currentQuestion,
-    }
-} 
-
-const updateDifficultyReducer = (state) => {
-    return {
-        ...state,
         currentDifficulty: state.currentDifficulty + 1,
     }
-}
+} 
 
 const playerName = (state, action) => {
     return {
@@ -50,7 +44,6 @@ const reducer = (state, action) => {
         case "START_GAME" : return playerName(state, action);
         case "SET_SOUND" : return setSound(state);
         case "UPDATE_QUESTION": return updateQuestion(state, action);
-        case "UPDATE_DIFFICULTY": return updateDifficultyReducer(state);
         case "SET_STATISTICS": return setStatistics(state, action);
         case "RESET_GAME": return setReset(state);
         default: return state;
