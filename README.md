@@ -13,6 +13,7 @@ The app utilises an API on the back-end, and the repository for this can be foun
 - CSS
 - Javascript
 - JSX
+
 For the API (https://github.com/Avi-Cohen-Nehemia/whoWantsToBeAWebDeveloperBackEnd) the following were used:
 - PHP 
 - Laravel
@@ -25,7 +26,7 @@ MVP:
 Additional features implemented in app:
 - On screen prompts from 'host' to guide player through the game. The name the player enters on landing page is used to personalise the prompts.
 
-- Themed music plays according to the stage of the game that the player is at. Mute button available to control whether sound plays. Sound is muted on launch of app to comply with brower autoplay policies.
+- Themed music plays according to the stage of the game that the player is at. Mute button available to control whether sound plays. Sound is muted on launch of app to comply with browser autoplay policies.
 
 - When a player gets a question wrong, the resulting alert tells the player what the right answer was.
 
