@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/whoWantsToBeAWebDeveloperFrontEnd/static/css/main.f2503713.chunk.css",
+    "main.js": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/main.638179d9.chunk.js",
+    "main.js.map": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/main.638179d9.chunk.js.map",
+    "runtime-main.js": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/runtime-main.8489a143.js",
+    "runtime-main.js.map": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/runtime-main.8489a143.js.map",
+    "static/css/2.f87e9f44.chunk.css": "/whoWantsToBeAWebDeveloperFrontEnd/static/css/2.f87e9f44.chunk.css",
+    "static/js/2.5f662761.chunk.js": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/2.5f662761.chunk.js",
+    "static/js/2.5f662761.chunk.js.map": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/2.5f662761.chunk.js.map",
+    "index.html": "/whoWantsToBeAWebDeveloperFrontEnd/index.html",
+    "precache-manifest.fae583d1df1b45e4a717afa4be917f24.js": "/whoWantsToBeAWebDeveloperFrontEnd/precache-manifest.fae583d1df1b45e4a717afa4be917f24.js",
+    "service-worker.js": "/whoWantsToBeAWebDeveloperFrontEnd/service-worker.js",
+    "static/css/2.f87e9f44.chunk.css.map": "/whoWantsToBeAWebDeveloperFrontEnd/static/css/2.f87e9f44.chunk.css.map",
+    "static/css/main.f2503713.chunk.css.map": "/whoWantsToBeAWebDeveloperFrontEnd/static/css/main.f2503713.chunk.css.map",
+    "static/js/2.5f662761.chunk.js.LICENSE.txt": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/2.5f662761.chunk.js.LICENSE.txt",
+    "static/media/audio.svg": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/audio.37e32b6e.svg",
+    "static/media/question.css": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/take2.844ca442.png",
+    "static/media/correctAnswer.mp3": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/correctAnswer.d27f45ad.mp3",
+    "static/media/crowdapplause.mp3": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/crowdapplause.fc981ab7.mp3",
+    "static/media/finalAnswer.mp3": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/finalAnswer.b0092313.mp3",
+    "static/media/letsPlay.mp3": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/letsPlay.3d8ba0a6.mp3",
+    "static/media/logoTransparent.png": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/logoTransparent.0b801b30.png",
+    "static/media/mute.svg": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/mute.e04237f5.svg",
+    "static/media/openingTheme.mp3": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/openingTheme.61c1eb5e.mp3",
+    "static/media/upTo1000music.mp3": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/upTo1000music.d9cb525d.mp3",
+    "static/media/upTo32000music.mp3": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/upTo32000music.78fa5376.mp3",
+    "static/media/wrongAnswer.mp3": "/whoWantsToBeAWebDeveloperFrontEnd/static/media/wrongAnswer.e55862ad.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8489a143.js",
+    "static/css/2.f87e9f44.chunk.css",
+    "static/js/2.5f662761.chunk.js",
+    "static/css/main.f2503713.chunk.css",
+    "static/js/main.638179d9.chunk.js"
+  ]
+}
