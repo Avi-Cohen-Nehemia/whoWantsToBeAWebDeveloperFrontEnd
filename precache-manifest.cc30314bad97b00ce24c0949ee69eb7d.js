@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ad4a334a2ad93168732faa2219ead81b",
+    "revision": "8069431660f1f87c83875e4acfcaaec4",
     "url": "/whoWantsToBeAWebDeveloperFrontEnd/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/whoWantsToBeAWebDeveloperFrontEnd/static/css/2.f87e9f44.chunk.css"
   },
   {
-    "revision": "a9fad5f17d93ce63bd7c",
+    "revision": "037054b37b11bb8272a9",
     "url": "/whoWantsToBeAWebDeveloperFrontEnd/static/css/main.f2503713.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/2.5f662761.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a9fad5f17d93ce63bd7c",
-    "url": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/main.638179d9.chunk.js"
+    "revision": "037054b37b11bb8272a9",
+    "url": "/whoWantsToBeAWebDeveloperFrontEnd/static/js/main.5ab11de2.chunk.js"
   },
   {
     "revision": "b79f478573ee9c4ce080",
